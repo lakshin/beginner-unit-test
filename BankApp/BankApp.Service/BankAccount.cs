@@ -30,16 +30,6 @@ namespace BankApp.Service
 
 		public void Debit(decimal amount)
 		{
-			if (amount > _balance)
-			{
-				throw new ArgumentOutOfRangeException("amount");
-			}
-
-			if (amount < 0)
-			{
-				throw new ArgumentOutOfRangeException("amount");
-			}
-
 			this.SubstractAmountFromBalanc(amount);
 		}
 
