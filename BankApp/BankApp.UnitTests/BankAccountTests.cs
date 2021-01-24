@@ -26,7 +26,7 @@ namespace BankApp.UnitTests
 		//}
 
 		[TestMethod]
-		public void CustomerName_Get_ShouldReturnInitializedName()
+		public void CustomerName_OnGet_ShouldReturnInitializedName()
 		{
 			// Arrange
 			string expectedCustomerName = "Mr. Bryan Walton";
@@ -40,7 +40,7 @@ namespace BankApp.UnitTests
 		}
 
 		[TestMethod]
-		public void Balance_Get_ShouldReturnInitializedBalance()
+		public void Balance_OnGet_ShouldReturnInitializedBalance()
 		{
 			// Arrange
 			decimal expectedBalance = 11.99m;
