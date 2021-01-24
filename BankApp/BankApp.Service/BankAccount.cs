@@ -9,6 +9,9 @@ namespace BankApp.Service
 	/// </summary>
 	public class BankAccount
 	{
+		public const string DebitAmountExceedsBalanceMessage = "Debit amount exceeds balance";
+		public const string DebitAmountLessThanZeroMessage = "Debit amount is less than zero";
+
 		private readonly string _customerName;
 		private decimal _balance;
 
@@ -32,12 +35,12 @@ namespace BankApp.Service
 		{
 			if (amount > _balance)
 			{
-				throw new ArgumentOutOfRangeException("amount");
+				throw new ArgumentOutOfRangeException("amount", DebitAmountExceedsBalanceMessage);
 			}
 
 			if (amount < 0)
 			{
-				throw new ArgumentOutOfRangeException("amount");
+				throw new ArgumentOutOfRangeException("amount", DebitAmountLessThanZeroMessage);
 			}
 
 			this.SubstractAmountFromBalanc(amount);
@@ -45,7 +48,7 @@ namespace BankApp.Service
 
 		private void SubstractAmountFromBalanc(decimal amount)
 		{
-			_balance += amount; // intentionally incorrect code
+			_balance -= amount; // intentionally incorrect code
 		}
 
 		public void Credit(decimal amount)
