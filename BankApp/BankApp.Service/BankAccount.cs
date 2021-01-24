@@ -40,10 +40,10 @@ namespace BankApp.Service
 				throw new ArgumentOutOfRangeException("amount");
 			}
 
-			this.AddAmountToBalance(amount);
+			this.SubstractAmountFromBalanc(amount);
 		}
 
-		private void AddAmountToBalance(decimal amount)
+		private void SubstractAmountFromBalanc(decimal amount)
 		{
 			_balance += amount; // intentionally incorrect code
 		}
@@ -55,10 +55,10 @@ namespace BankApp.Service
 				throw new ArgumentOutOfRangeException("amount");
 			}
 
-			this.SubstractAmountFromBalance(amount);
+			this.AddAmountFromBalance(amount);
 		}
 
-		private void SubstractAmountFromBalance(decimal amount)
+		private void AddAmountFromBalance(decimal amount)
 		{
 			_balance += amount;
 		}
