@@ -117,5 +117,44 @@ namespace BankApp.UnitTests
 
 			Assert.Fail();
 		}
+
+		[DataRow(11.99, 4.55, 7.44)]
+		[DataRow(12, 4, 8)]
+		[DataTestMethod]
+		public void Debit_WithValidAmount_UpdatesBalance2(double beginningBalance, double debitAmount, double expected)
+		{
+			// Arrange
+			decimal beginningBalanceDecimal = Convert.ToDecimal(beginningBalance);
+			decimal debitAmountDecimal = Convert.ToDecimal(debitAmount);
+			decimal expectedDecimal = Convert.ToDecimal(expected);
+
+			BankAccount account = new BankAccount("Mr. Bryan Walton", beginningBalanceDecimal);
+
+			// Act
+			account.Debit(debitAmountDecimal);
+
+			// Assert
+			decimal actual = account.Balance;
+			Assert.AreEqual(expectedDecimal, actual, "Account not debited correctly");
+		}
+
+		[DynamicData(nameof(TestData.GetTestData), typeof(TestData), DynamicDataSourceType.Method)]
+		[DataTestMethod]
+		public void Debit_WithValidAmount_UpdatesBalance3(double beginningBalance, double debitAmount, double expected)
+		{
+			// Arrange
+			decimal beginningBalanceDecimal = Convert.ToDecimal(beginningBalance);
+			decimal debitAmountDecimal = Convert.ToDecimal(debitAmount);
+			decimal expectedDecimal = Convert.ToDecimal(expected);
+
+			BankAccount account = new BankAccount("Mr. Bryan Walton", beginningBalanceDecimal);
+
+			// Act
+			account.Debit(debitAmountDecimal);
+
+			// Assert
+			decimal actual = account.Balance;
+			Assert.AreEqual(expectedDecimal, actual, "Account not debited correctly");
+		}
 	}
 }
