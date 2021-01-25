@@ -128,13 +128,13 @@ namespace BankApp.UnitTests
 			decimal debitAmountDecimal = Convert.ToDecimal(debitAmount);
 			decimal expectedDecimal = Convert.ToDecimal(expected);
 
-			BankAccount account = new BankAccount("Mr. Bryan Walton", beginningBalanceDecimal);
+			BankAccount sut = new BankAccount("Mr. Bryan Walton", beginningBalanceDecimal);
 
 			// Act
-			account.Debit(debitAmountDecimal);
+			sut.Debit(debitAmountDecimal);
 
 			// Assert
-			decimal actual = account.Balance;
+			decimal actual = sut.Balance;
 			Assert.AreEqual(expectedDecimal, actual, "Account not debited correctly");
 		}
 
@@ -147,13 +147,13 @@ namespace BankApp.UnitTests
 			decimal debitAmountDecimal = Convert.ToDecimal(debitAmount);
 			decimal expectedDecimal = Convert.ToDecimal(expected);
 
-			BankAccount account = new BankAccount("Mr. Bryan Walton", beginningBalanceDecimal);
+			BankAccount sut = new BankAccount("Mr. Bryan Walton", beginningBalanceDecimal);
 
 			// Act
-			account.Debit(debitAmountDecimal);
+			sut.Debit(debitAmountDecimal);
 
 			// Assert
-			decimal actual = account.Balance;
+			decimal actual = sut.Balance;
 			Assert.AreEqual(expectedDecimal, actual, "Account not debited correctly");
 		}
 	}
